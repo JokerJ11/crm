@@ -13,7 +13,7 @@
     </div><br />
   @endif
   <div class='float-left m-3'>
-    <a href="{{ route('tasks.create')}}" class="btn btn-primary btn-lg">Add New</a>
+    <a href="{{ route('tasks.create')}}" class="btn btn-primary btn-sm"><i class="fas fa-plus mr-1"></i> Create New</a>
   </div>
   <table class="table table-striped">
     <thead>
@@ -36,13 +36,14 @@
             <td>{{$task->type_of_work_id}}</td>
             <td>{{$task->description}}</td>
             <td>{{$task->attachment}}</td>
-            <td><a href="#" class="btn btn-primary"><i class="fas fa-eye"></i></a></td>
-            <td><a href="{{ route('tasks.edit', $task->id)}}" class="btn btn-secondary"><i class="fas fa-edit"></i></a></td>
             <td>
+              <a href="#" class="btn btn-primary btn-xs"><i class="fas fa-eye"></i></a>
+              <a href="{{ route('tasks.edit', $task->id)}}" class="btn btn-warning  btn-xs"><i class="fas fa-edit"></i></a>
+            
                 <form action="{{ route('tasks.destroy', $task->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>
+                  <button class="btn btn-danger btn-xs" type="submit"><i class="fas fa-trash"></i></button>
                 </form>
             </td>
         </tr>
